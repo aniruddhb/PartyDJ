@@ -44,14 +44,8 @@ class LoginViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
             } else {
-                // perform segue (for now, print success)
-                // print list of user events
-                let params = ["fields" : "name"]
-                
-                var fbRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/events?limit=100", parameters: params)
-                fbRequest.startWithCompletionHandler({ (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) in
-                    print(result)
-                })
+                // perform segue to events list
+                self.performSegueWithIdentifier("EventsListSegue", sender: sender)
             }
         }
     }

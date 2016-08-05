@@ -117,10 +117,60 @@
                             <constraint firstItem="StO-C5-cLf" firstAttribute="width" secondItem="j3s-Y1-YTX" secondAttribute="width" multiplier="0.5" id="vTc-LB-0xW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="tpd-6p-EWT" kind="presentation" identifier="EventsListSegue" id="4du-f5-SNy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQl-XZ-5Pj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="297" y="420"/>
+            <point key="canvasLocation" x="-219" y="435"/>
+        </scene>
+        <!--Events List-->
+        <scene sceneID="wIQ-RB-Npe">
+            <objects>
+                <tableViewController title="Events List" id="zmT-qx-h3s" customClass="EventsTableViewController" customModule="PartyDJ" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="vg4-ez-uVe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Cox-3n-Ufv">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cox-3n-Ufv" id="f7Q-nQ-Itu">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zmT-qx-h3s" id="uEU-Gk-cu4"/>
+                            <outlet property="delegate" destination="zmT-qx-h3s" id="Yqz-el-3gB"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Y7s-gN-r2f"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cPz-ns-8XZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1403" y="435"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HDG-hj-dLf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tpd-6p-EWT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Vn-fA-R40">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zmT-qx-h3s" kind="relationship" relationship="rootViewController" id="CWI-VD-goZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="35x-eY-pVS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="591" y="435"/>
         </scene>
     </scenes>
 </document>
