@@ -17,6 +17,10 @@
 		B61CEB3A1D5421160036B68C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61CEB391D5421160036B68C /* FBSDKLoginKit.framework */; };
 		B61CEB3C1D54211C0036B68C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61CEB3B1D54211C0036B68C /* FBSDKShareKit.framework */; };
 		B61CEB3E1D5423AD0036B68C /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61CEB3D1D5423AD0036B68C /* Bolts.framework */; };
+		B61CEB441D5435A00036B68C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61CEB401D5435A00036B68C /* Fabric.framework */; };
+		B61CEB451D5435A00036B68C /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61CEB411D5435A00036B68C /* TwitterKit.framework */; };
+		B61CEB461D5435A00036B68C /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B61CEB421D5435A00036B68C /* TwitterKitResources.bundle */; };
+		B61CEB471D5435A00036B68C /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61CEB431D5435A00036B68C /* TwitterCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		B61CEB391D5421160036B68C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		B61CEB3B1D54211C0036B68C /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		B61CEB3D1D5423AD0036B68C /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		B61CEB401D5435A00036B68C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		B61CEB411D5435A00036B68C /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		B61CEB421D5435A00036B68C /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		B61CEB431D5435A00036B68C /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,9 +48,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B61CEB3A1D5421160036B68C /* FBSDKLoginKit.framework in Frameworks */,
+				B61CEB441D5435A00036B68C /* Fabric.framework in Frameworks */,
+				B61CEB471D5435A00036B68C /* TwitterCore.framework in Frameworks */,
 				B61CEB381D54210E0036B68C /* FBSDKCoreKit.framework in Frameworks */,
 				B61CEB3C1D54211C0036B68C /* FBSDKShareKit.framework in Frameworks */,
 				B61CEB3E1D5423AD0036B68C /* Bolts.framework in Frameworks */,
+				B61CEB451D5435A00036B68C /* TwitterKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +94,10 @@
 		B61CEB361D5420F00036B68C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B61CEB401D5435A00036B68C /* Fabric.framework */,
+				B61CEB411D5435A00036B68C /* TwitterKit.framework */,
+				B61CEB421D5435A00036B68C /* TwitterKitResources.bundle */,
+				B61CEB431D5435A00036B68C /* TwitterCore.framework */,
 				B61CEB3D1D5423AD0036B68C /* Bolts.framework */,
 				B61CEB3B1D54211C0036B68C /* FBSDKShareKit.framework */,
 				B61CEB391D5421160036B68C /* FBSDKLoginKit.framework */,
@@ -101,6 +116,7 @@
 				B61CEB181D5420AC0036B68C /* Sources */,
 				B61CEB191D5420AC0036B68C /* Frameworks */,
 				B61CEB1A1D5420AC0036B68C /* Resources */,
+				B61CEB3F1D54356F0036B68C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -150,6 +166,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B61CEB461D5435A00036B68C /* TwitterKitResources.bundle in Resources */,
 				B61CEB2D1D5420AC0036B68C /* LaunchScreen.storyboard in Resources */,
 				B61CEB2A1D5420AC0036B68C /* Assets.xcassets in Resources */,
 				B61CEB251D5420AC0036B68C /* Main.storyboard in Resources */,
@@ -157,6 +174,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B61CEB3F1D54356F0036B68C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run a5fb18e3e9d73043118739f8a16953e9df28e8a1 efcb61cba449d9b533fe2be42e0b1d9feab48a872ebaa00bbd93bc1c1e672341";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B61CEB181D5420AC0036B68C /* Sources */ = {

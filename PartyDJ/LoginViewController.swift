@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TwitterKit
 import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
@@ -43,14 +44,26 @@ class LoginViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
             } else {
-                // prepare segue (for now, print success)
+                // perform segue (for now, print success)
                 print("success")
             }
         }
     }
     
     @IBAction func twitterButtonDidTouch(sender: UIButton) {
-    
+        // use fabric to login via twtr shared instance
+        Twitter.sharedInstance().logInWithCompletion { (session: TWTRSession?, error: NSError?) in
+            // if session isn't nil, login succesful. otherwise alert user
+            if session == nil {
+                // configure and show error alert to user
+                let alert: UIAlertController = UIAlertController(title: "Login Error", message: "There was an error logging into Twitter. Please try again later :(", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            } else {
+                // perform segue (for now, print success)
+                print("success")
+            }
+        }
     }
     
     /*
