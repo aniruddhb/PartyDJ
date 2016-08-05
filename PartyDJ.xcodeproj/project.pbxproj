@@ -22,6 +22,7 @@
 		B61CEB461D5435A00036B68C /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B61CEB421D5435A00036B68C /* TwitterKitResources.bundle */; };
 		B61CEB471D5435A00036B68C /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61CEB431D5435A00036B68C /* TwitterCore.framework */; };
 		B6F8C00B1D55176B00B6DB5E /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8C00A1D55176B00B6DB5E /* EventsTableViewController.swift */; };
+		B6F8C00D1D551C1B00B6DB5E /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8C00C1D551C1B00B6DB5E /* EventTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		B61CEB421D5435A00036B68C /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		B61CEB431D5435A00036B68C /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		B6F8C00A1D55176B00B6DB5E /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
+		B6F8C00C1D551C1B00B6DB5E /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				B61CEB1F1D5420AC0036B68C /* AppDelegate.swift */,
 				B61CEB341D5420DF0036B68C /* LoginViewController.swift */,
 				B6F8C00A1D55176B00B6DB5E /* EventsTableViewController.swift */,
+				B6F8C00C1D551C1B00B6DB5E /* EventTableViewCell.swift */,
 				B61CEB231D5420AC0036B68C /* Main.storyboard */,
 				B61CEB291D5420AC0036B68C /* Assets.xcassets */,
 				B61CEB2B1D5420AC0036B68C /* LaunchScreen.storyboard */,
@@ -202,6 +205,7 @@
 				B61CEB351D5420DF0036B68C /* LoginViewController.swift in Sources */,
 				B61CEB281D5420AC0036B68C /* PartyDJ.xcdatamodeld in Sources */,
 				B6F8C00B1D55176B00B6DB5E /* EventsTableViewController.swift in Sources */,
+				B6F8C00D1D551C1B00B6DB5E /* EventTableViewCell.swift in Sources */,
 				B61CEB201D5420AC0036B68C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
