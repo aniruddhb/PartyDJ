@@ -7,22 +7,54 @@
 //
 
 import UIKit
+import FBSDKCoreKit
 
 class EventsTableViewController: UITableViewController {
+    
+    /* local array of tuples to hold event id + event name */
+    var eventInformation: [(String, String)] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        // set nav bar title
+        self.navigationController?.title = "Facebook Events"
+        
+        // set no seperators
+        self.tableView.separatorStyle = .None
+        
+        // load events into view
+        populateView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Custom Functions
+    
+    func populateView() {
+        // define fbrequest params
+        let params = ["fields" : "name"]
+        
+        // define fbrequest
+        let fbEventsRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/events?limit=100", parameters: params)
+        
+        // start req
+        fbEventsRequest.startWithCompletionHandler { (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) in
+            // if error is nil, parse data. otherwise, present alert to user
+            if error == nil {
+                // grab data array from result
+                let resultData: [Dictionary<String, String>] = result["data"] as! [Dictionary<String, String>]
+                
+                // loop through array
+                for eachEvent: Dictionary<String, String> in resultData {
+                    let tupleInfo: (String, String) = (eachEvent["id"]!, eachEvent["name"]!)
+                    self.eventInformation.append(tupleInfo)
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source
