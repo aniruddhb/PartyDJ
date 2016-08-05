@@ -51,19 +51,22 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eky-iL-cI8">
-                                <rect key="frame" x="0.0" y="480" width="600" height="120"/>
+                                <rect key="frame" x="0.0" y="450" width="600" height="150"/>
                                 <color key="backgroundColor" red="0.31372549019607843" green="0.31764705882352939" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="StO-C5-cLf">
-                                <rect key="frame" x="300" y="300" width="300" height="180"/>
+                                <rect key="frame" x="300" y="300" width="300" height="150"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYt-cO-MSZ">
-                                        <rect key="frame" x="74" y="51" width="152" height="78"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="48"/>
+                                        <rect key="frame" x="93" y="44" width="114" height="62"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="36"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Twitter">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="twitterButtonDidTouch:" destination="Eqm-ui-egN" eventType="touchUpInside" id="keI-bI-GAF"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.14117647058823529" green="0.4823529411764706" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
@@ -73,15 +76,18 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTs-ra-5ku">
-                                <rect key="frame" x="0.0" y="300" width="300" height="180"/>
+                                <rect key="frame" x="0.0" y="300" width="300" height="150"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOB-VE-CWV">
-                                        <rect key="frame" x="41" y="51" width="218" height="78"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="48"/>
+                                        <rect key="frame" x="68" y="44" width="164" height="62"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="36"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Facebook">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="facebookButtonDidTouch:" destination="Eqm-ui-egN" eventType="touchUpInside" id="5Dx-Bf-LvQ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.37254901960784315" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
@@ -97,7 +103,7 @@
                             <constraint firstAttribute="trailing" secondItem="StO-C5-cLf" secondAttribute="trailing" id="4OQ-QP-hyg"/>
                             <constraint firstAttribute="trailing" secondItem="yRE-qK-oML" secondAttribute="trailing" id="5C6-Z6-PTS"/>
                             <constraint firstAttribute="trailing" secondItem="eky-iL-cI8" secondAttribute="trailing" id="AzI-3J-AZz"/>
-                            <constraint firstItem="eky-iL-cI8" firstAttribute="height" secondItem="j3s-Y1-YTX" secondAttribute="height" multiplier="0.2" id="H3h-iU-bjy"/>
+                            <constraint firstItem="eky-iL-cI8" firstAttribute="height" secondItem="j3s-Y1-YTX" secondAttribute="height" multiplier="0.25" id="H3h-iU-bjy"/>
                             <constraint firstItem="cHU-yf-75Z" firstAttribute="top" secondItem="eky-iL-cI8" secondAttribute="bottom" id="HRo-up-faI"/>
                             <constraint firstItem="yRE-qK-oML" firstAttribute="leading" secondItem="j3s-Y1-YTX" secondAttribute="leading" id="L0N-js-hd6"/>
                             <constraint firstItem="jTs-ra-5ku" firstAttribute="top" secondItem="yRE-qK-oML" secondAttribute="bottom" id="QfL-1N-qWg"/>
