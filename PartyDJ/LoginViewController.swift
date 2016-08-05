@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
         let facebookLoginManager: FBSDKLoginManager = FBSDKLoginManager()
         
         // declare set of login permissions
-        let facebookLoginPermissions: [AnyObject]! = ["public_profile", "email", "user_friends"]
+        let facebookLoginPermissions: [AnyObject]! = ["public_profile", "email", "user_friends", "user_events"]
         
         // request login with manager
         facebookLoginManager.logInWithReadPermissions(facebookLoginPermissions, fromViewController: self) { (result: FBSDKLoginManagerLoginResult!, error: NSError!) in
