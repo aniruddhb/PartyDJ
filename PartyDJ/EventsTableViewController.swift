@@ -12,7 +12,7 @@ import FBSDKCoreKit
 class EventsTableViewController: UITableViewController {
     
     /* local array of tuples to hold event id + event name */
-    var eventInformation: [(String, String)] = []
+    var eventInformation: [(String, String, String)] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,18 +36,35 @@ class EventsTableViewController: UITableViewController {
         let params = ["fields" : "name"]
         
         // define fbrequest
-        let fbEventsRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/events?limit=100", parameters: params)
+        let fbAllEventsRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/events?limit=100", parameters: params)
         
         // start req
-        fbEventsRequest.startWithCompletionHandler { (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) in
+        fbAllEventsRequest.startWithCompletionHandler { (connection: FBSDKGraphRequestConnection!, allEventsResult: AnyObject!, error: NSError!) in
             // if error is nil, parse data. otherwise, present alert to user
             if error == nil {
                 // grab data array from result
-                let resultData: [Dictionary<String, String>] = result["data"] as! [Dictionary<String, String>]
+                let resultData: [Dictionary<String, String>] = allEventsResult["data"] as! [Dictionary<String, String>]
                 
                 // loop through array
                 for eachEvent: Dictionary<String, String> in resultData {
-                    let tupleInfo: (String, String) = (eachEvent["id"]!, eachEvent["name"]!)
+                    // construct request to find date of this event
+                    var eventDate: String = ""
+                    
+                    // declare req to event
+                    let fbEventRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "/" + eachEvent["id"]!, parameters: params)
+                    
+                    // start req
+                    fbEventRequest.startWithCompletionHandler({ (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) in
+                        // if error is nil, get date of this event from req
+                        if error == nil {
+                            print(result)
+                        } else {
+                            eventDate = "Not found"
+                        }
+                    })
+                    
+                    
+                    let tupleInfo: (String, String, String) = (eachEvent["id"]!, eachEvent["name"]!, "1/1/16")
                     self.eventInformation.append(tupleInfo)
                 }
             }
@@ -68,7 +85,7 @@ class EventsTableViewController: UITableViewController {
 
         // Configure the cell...
         cell.eventID = self.eventInformation[indexPath.row].0
-        cell.eventName.text = self.eventInformation[indexPath.row].1
+        cell.eventName.text = self.eventInformation[indexPath.row].1 + " " + self.eventInformation[indexPath.row].2
 
         return cell
     }
