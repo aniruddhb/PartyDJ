@@ -50,14 +50,20 @@ class EventsTableViewController: UITableViewController {
                     // construct request to find date of this event
                     var eventDate: String = ""
                     
+                    // define fbeventrequest params
+                    let eventParams = ["fields" : "name,start_time"]
+                    
                     // declare req to event
-                    let fbEventRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "/" + eachEvent["id"]!, parameters: params)
+                    let fbEventRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "/" + eachEvent["id"]!, parameters: eventParams)
                     
                     // start req
                     fbEventRequest.startWithCompletionHandler({ (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) in
                         // if error is nil, get date of this event from req
                         if error == nil {
-                            print(result)
+                            // grab result data
+                            eventDate = result["start_time"] as! String
+                            var test: Index = eventDate.in
+                            eventDate = eventDate.substringToIndex(eventDate.index)
                         } else {
                             eventDate = "Not found"
                         }
