@@ -10,7 +10,7 @@ import UIKit
 
 class EventTableViewCell: UITableViewCell {
 
-    /* IBOutlet to hold this event's name */
+    /* IBOutlet to hold this event's name and date */
     @IBOutlet weak var eventName: UILabel!
     
     /* variable to hold this event's id (not displayed, for use in segue) */

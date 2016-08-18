@@ -149,7 +149,7 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dEM-yL-Ht9" secondAttribute="trailing" constant="100" id="VQU-1S-qrF"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dEM-yL-Ht9" secondAttribute="trailing" constant="50" id="VQU-1S-qrF"/>
                                         <constraint firstItem="dEM-yL-Ht9" firstAttribute="leading" secondItem="f7Q-nQ-Itu" secondAttribute="leading" constant="8" id="sXr-op-U8p"/>
                                         <constraint firstItem="dEM-yL-Ht9" firstAttribute="centerY" secondItem="f7Q-nQ-Itu" secondAttribute="centerY" id="w6l-Lk-YC9"/>
                                     </constraints>
@@ -168,7 +168,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPz-ns-8XZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1403" y="435"/>
+            <point key="canvasLocation" x="1349" y="435"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HDG-hj-dLf">

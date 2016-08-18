@@ -12,7 +12,7 @@ import FBSDKCoreKit
 class EventsTableViewController: UITableViewController {
     
     /* local array of tuples to hold event id + event name */
-    var eventInformation: [(String, String, String)] = []
+    var eventInformation: [(String, String)] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,30 +47,7 @@ class EventsTableViewController: UITableViewController {
                 
                 // loop through array
                 for eachEvent: Dictionary<String, String> in resultData {
-                    // construct request to find date of this event
-                    var eventDate: String = ""
-                    
-                    // define fbeventrequest params
-                    let eventParams = ["fields" : "name,start_time"]
-                    
-                    // declare req to event
-                    let fbEventRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "/" + eachEvent["id"]!, parameters: eventParams)
-                    
-                    // start req
-                    fbEventRequest.startWithCompletionHandler({ (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) in
-                        // if error is nil, get date of this event from req
-                        if error == nil {
-                            // grab result data
-                            eventDate = result["start_time"] as! String
-                            var test: Index = eventDate.in
-                            eventDate = eventDate.substringToIndex(eventDate.index)
-                        } else {
-                            eventDate = "Not found"
-                        }
-                    })
-                    
-                    
-                    let tupleInfo: (String, String, String) = (eachEvent["id"]!, eachEvent["name"]!, "1/1/16")
+                    let tupleInfo: (String, String) = (eachEvent["id"]!, eachEvent["name"]!)
                     self.eventInformation.append(tupleInfo)
                 }
             }
@@ -91,7 +68,7 @@ class EventsTableViewController: UITableViewController {
 
         // Configure the cell...
         cell.eventID = self.eventInformation[indexPath.row].0
-        cell.eventName.text = self.eventInformation[indexPath.row].1 + " " + self.eventInformation[indexPath.row].2
+        cell.eventName.text = self.eventInformation[indexPath.row].1
 
         return cell
     }
