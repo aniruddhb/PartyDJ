@@ -111,6 +111,9 @@ class EventsTableViewController: UITableViewController {
         } else {
             print(eventInformation[indexPath.row].0)
         }
+        
+        // deselect this row
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }
 
