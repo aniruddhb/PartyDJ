@@ -13,12 +13,24 @@ class EventsTableViewController: UITableViewController {
     
     /* local array of tuples to hold event id + event name */
     var eventInformation: [(String, String)] = []
+    
+    /* local array of tuples to hold filtered events */
+    var filteredEventInformation: [(String, String)] = []
+    
+    // search controller
+    let searchController: UISearchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // set nav bar title
         self.title = "Facebook Events"
+        
+        // define parameters and properties for search controller
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        self.tableView.tableHeaderView = searchController.searchBar
     
         // load events into view
         populateView()
@@ -56,10 +68,24 @@ class EventsTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
+    
+    func filterEventContent(searchText: String, scope: String = "ALL") {
+        // filter content into new tuple array
+        filteredEventInformation = eventInformation.filter({ (indivEventInfo: (String, String)) -> Bool in
+            return indivEventInfo.1.lowercaseString.containsString(searchText.lowercaseString)
+        })
+        
+        // reload tableview
+        self.tableView.reloadData()
+    }
 
     // MARK: - Table view data source
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if searchController.active && searchController.searchBar.text != "" {
+            return self.filteredEventInformation.count
+        }
+        
         return self.eventInformation.count
     }
 
@@ -67,9 +93,30 @@ class EventsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventTableViewCell
 
         // Configure the cell...
-        cell.eventID = self.eventInformation[indexPath.row].0
-        cell.eventName.text = self.eventInformation[indexPath.row].1
+        if searchController.active && searchController.searchBar.text != "" {
+            cell.eventID = self.filteredEventInformation[indexPath.row].0
+            cell.eventName.text = self.filteredEventInformation[indexPath.row].1
+        } else {
+            cell.eventID = self.eventInformation[indexPath.row].0
+            cell.eventName.text = self.eventInformation[indexPath.row].1
+        }
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // simple check if the correct event id still shows up
+        if searchController.active && searchController.searchBar.text != "" {
+            print(filteredEventInformation[indexPath.row].0)
+        } else {
+            print(eventInformation[indexPath.row].0)
+        }
+    }
+}
+
+/* class extension for search feature */
+extension EventsTableViewController: UISearchResultsUpdating {
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        filterEventContent(searchController.searchBar.text!)
     }
 }
