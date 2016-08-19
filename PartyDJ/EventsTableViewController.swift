@@ -114,6 +114,18 @@ class EventsTableViewController: UITableViewController {
         
         // deselect this row
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        // perform segue
+        performSegueWithIdentifier("EventDetailSegue", sender: self.tableView.cellForRowAtIndexPath(indexPath))
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // if segue name is EventDetailSegue, pass event id to detailview
+        if segue.identifier == "EventDetailSegue" {
+            // get toviewcontroller
+            let toViewController: EventDetailTableViewController = (segue.destinationViewController as! UINavigationController).topViewController as! EventDetailTableViewController
+            toViewController.eventID = Int((sender as! EventTableViewCell).eventID)!
+        }
     }
 }
 
