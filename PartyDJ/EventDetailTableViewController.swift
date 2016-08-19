@@ -10,6 +10,9 @@ import UIKit
 
 class EventDetailTableViewController: UITableViewController {
     
+    /* the name of this event */
+    var eventName: String = ""
+    
     /* the id for this event */
     var eventID: Int = 0
 
@@ -17,7 +20,7 @@ class EventDetailTableViewController: UITableViewController {
         super.viewDidLoad()
 
         // set nav bar title
-        self.title = "Event Name By Delegate"
+        self.title = eventName
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,5 +94,4 @@ class EventDetailTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

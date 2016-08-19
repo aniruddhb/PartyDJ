@@ -78,6 +78,10 @@ class EventsTableViewController: UITableViewController {
         // reload tableview
         self.tableView.reloadData()
     }
+    
+    @IBAction func unwindToEventsList(segue: UIStoryboardSegue) {
+    
+    }
 
     // MARK: - Table view data source
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -125,6 +129,7 @@ class EventsTableViewController: UITableViewController {
             // get toviewcontroller
             let toViewController: EventDetailTableViewController = (segue.destinationViewController as! UINavigationController).topViewController as! EventDetailTableViewController
             toViewController.eventID = Int((sender as! EventTableViewCell).eventID)!
+            toViewController.eventName = (sender as! EventTableViewCell).eventName.text!
         }
     }
 }

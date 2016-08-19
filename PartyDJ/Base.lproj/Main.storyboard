@@ -173,10 +173,10 @@
             </objects>
             <point key="canvasLocation" x="1349" y="435"/>
         </scene>
-        <!--Event Detail Table View Controller-->
+        <!--Inidividual Event Detail-->
         <scene sceneID="Xy6-5x-Ib2">
             <objects>
-                <tableViewController id="sWa-WU-tSH" customClass="EventDetailTableViewController" customModule="PartyDJ" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Inidividual Event Detail" id="sWa-WU-tSH" customClass="EventDetailTableViewController" customModule="PartyDJ" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="DbZ-Lj-B3D">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,11 +196,18 @@
                             <outlet property="delegate" destination="sWa-WU-tSH" id="Bw8-Pb-6QA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="TyC-cH-eeo"/>
+                    <navigationItem key="navigationItem" id="TyC-cH-eeo">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="17Z-CM-Uc3">
+                            <connections>
+                                <segue destination="TaN-eY-Nfa" kind="unwind" unwindAction="unwindToEventsList:" id="lHb-8g-iOc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3xn-YS-MIc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="TaN-eY-Nfa" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3065" y="435"/>
+            <point key="canvasLocation" x="2918" y="435"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="fah-VO-Ra6">
